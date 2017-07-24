@@ -1,13 +1,3 @@
----
-title: Javascripts Objects
-type: lesson
-duration: "1:25"
-creator:
-  name: Alex Chin, Gerry Mathe, Sean Shannon
-  city: London, DC
-competencies: Programming
----
-
 # JavaScript Objects
 
 ### Objectives
@@ -59,7 +49,7 @@ There are 4 different ways to create an object.
 The [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) constructor creates an object wrapper for the given value.
 
 ```javascript
-var myObject = new Object();
+const myObject = new Object();
 ```
 
 #### Object literal syntax
@@ -69,7 +59,7 @@ This is also called an [object initializer](https://developer.mozilla.org/en-US/
 This is equivalent to the syntax above, and is the one we use to create JSON objects.
 
 ```javascript
-var myObject = {};
+const myObject = {};
 ```
 
 #### Constructor function
@@ -84,7 +74,7 @@ function Classroom(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-var wdi = new Classroom("WDI 4 London", 25);
+const wdi = new Classroom('WDI TTP NYC', 25);
 ```
 
 #### Object.create
@@ -95,19 +85,19 @@ This method can take an object in argument as the prototype, allowing you to cre
 
 
 ```javascript
-var Person = {
-  type: "Human",
+const Person = {
+  type: 'Human',
   displayType: function(){
     console.log(this.type);
   }
 }
 
-var person1 = Object.create(Person);
+const person1 = Object.create(Person);
 person1.displayType();
 => Human
 
-var person2 = Object.create(Person);
-person2.type = "Man";
+const person2 = Object.create(Person);
+person2.type = 'Man';
 person2.displayType();
 => Man
 ```
@@ -116,11 +106,11 @@ person2.displayType();
 
 Objects in JavaScript **always** have properties associated with them.
 
-You can think of a property on a JavaScript object as a type of variable that contains a value. The properties of an object can be accessed using "dot notation":
+You can think of a property on a JavaScript object as a type of variable that contains a value. The properties of an object can be accessed using 'dot notation':
 
 ```javascript
-var Person = {
-  name: "Gerry"
+const Person = {
+  name: 'Gerry'
 }
 
 Person.name
@@ -130,14 +120,14 @@ Person.name
 You can define or re-assign a property by assigning it a value using `=` as you would a normal variable.
 
 ```javascript
-var Person = {
-  name: "Gerry"
+const Person = {
+  name: 'Gerry'
 }
 
 Person.name
 => "Gerry"
 
-Person.name = "Alex"
+Person.name = 'Alex'
 Person.name
 => "Alex"
 ```
@@ -147,17 +137,17 @@ Person.name
 We are going to create an object `classroom` that contains properties `name` and `campus`:
 
 ```javascript
-var classroom = new Object();
+const classroom = new Object();
 => undefined
 
-classroom.name = "WDI 2";
+classroom.name = 'WDI 2';
 => "WDI 2"
 
-classroom.campus = "London";
+classroom.campus = 'London';
 => "London"
 
 classroom
-=> Object {name: "WDI 2", campus: "London"}
+=> Object {name: 'WDI 2', campus: 'London'}
 ```
 
 #### Bracket notation
@@ -165,17 +155,17 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom["name"]   = "WDI 2";
-classroom["campus"] = "London";
+classroom['name']   = 'WDI 2';
+classroom['campus'] = 'London';
 ```
 
 This syntax can also be used to read properties of an object:
 
 ```javascript
-console.log(classroom["name"]);
+console.log(classroom['name']);
 => "WDI 2";
 
-var property = "campus";
+const property = 'campus';
 
 console.log(classroom[property]);
 => "London";
@@ -191,7 +181,7 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```
-var classroom = {name: "WDI 2", campus: "London", start: "1/1/2000"};
+const classroom = {name: 'WDI 2', campus: 'London', start: '1/1/2000'};
 delete classroom.start;
 classroom
 => {name: "WDI 2", campus: "London"}
@@ -202,7 +192,7 @@ classroom
 As we've said before, the value of a property can be anything in JavaScript, means we can also attach functions to objects properties. When a function is attached to a property, this function becomes a `method`. Methods are defined the exact same way as a function, except that they have to be defined as the property of an object.
 
 ```javascript
-var classroom = {
+const classroom = {
   name: "WDI 2",
   campus: "London",
   start: "1/1/2000",
@@ -224,7 +214,7 @@ classroom.sayHello();
 We can attach regular functions to objects as methods, even after they are created.
 
 ```
-var sayHello = function() { console.log("Hello"); }
+const sayHello = function() { console.log("Hello"); }
 
 classroom.sayHello = sayHello;  
 
@@ -238,12 +228,12 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 
 ```
-var classroom = {
-  name: "WDI 2",
-  campus: "London",
-  start: "1/1/2000",
+const classroom = {
+  name: 'WDI 2',
+  campus: 'London',
+  start: '1/1/2000',
   classInfo: function(){
-    console.log("This is " + this.name + " and the class starts on " + this.start);
+    console.log('This is ' + this.name + ' and the class starts on ' + this.start);
   }
 };
 
@@ -256,7 +246,7 @@ classroom.classInfo()
 > A getter is a method that gets the value of a specific property. A setter is a method that sets the value of a specific property. You can define getters and setters on any predefined core object or user-defined object that supports the addition of new properties. The syntax for defining getters and setters uses the object literal syntax.
 
 ```javascript
-var o = {
+const o = {
 	a: 7,
 	get b() {
 		return this.a + 1;
@@ -284,7 +274,7 @@ This section from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 There are three native ways to list the properties of an object:
 
 * **for...in loops** This method traverses all enumerable properties of an object and its prototype chain
-* **Object.keys(o)**  This method returns an array with all the own (not in the prototype chain) enumerable properties' names ("keys") of an object o.
+* **Object.keys(o)**  This method returns an array with all the own (not in the prototype chain) enumerable properties' names ('keys') of an object o.
 * **Object.getOwnPropertyNames(o)** This method returns an array containing all own properties' names (enumerable or not) of an object o.
 
 **Loop over an objects properties**
@@ -293,19 +283,19 @@ There are three native ways to list the properties of an object:
 You can use the bracket notation with for...in to iterate over all the enumerable properties of an object.
 
 ```javascript
-var myCar = {make: "Ford", model: "Mustang", year: 1969};
+const myCar = {make: 'Ford', model: 'Mustang', year: 1969};
 
 function showProps(obj, objName) {
-  var result = "";
-  for (var i in obj) {
+  const result = ';
+  for (let i in obj) {
     if (obj.hasOwnProperty(i)) {
-      result += objName + "." + i + " = " + obj[i] + "\n";
+      result += objName + '.' + i + ' = ' + obj[i] + '\n';
     }
   }
   return result;
 }
 
-showProps(myCar, "Car");
+showProps(myCar, 'Car');
 => Car.make = Ford
 => Car.model = Mustang
 => Car.year = 1969
@@ -319,10 +309,10 @@ This section from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 In JavaScript, if two objects are created separately, they are distinct, even if they are given the same properties.
 
 ```javascript
-var student = {name: "Chris"};
+const student = {name: 'Chris'};
 => undefined
 
-var student2 = {name: "Chris"};
+const student2 = {name: 'Chris'};
 => undefined
 
 student == student2
@@ -354,6 +344,8 @@ If you're confused by the difference between `==` and `===` review MDN's notes o
 ## Conclusion (5 mins)
 
 We will use objects in JavaScript every day, and you will have plenty of time to practice creating and using objects in Javascript. There are a lot of resources available on the web for you to dive deeper, but the most detailed and understandable one is probably MDN.
+
+## References
 
 - [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 - [Intro to Object-Orientated Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript)
