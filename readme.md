@@ -180,7 +180,7 @@ If you want to delete a property of an object (and by extension, the value attac
 
 The following code shows how to remove a property:
 
-```
+```javascript
 const classroom = {name: 'WDI 2', campus: 'London', start: '1/1/2000'};
 delete classroom.start;
 classroom
@@ -204,7 +204,7 @@ const classroom = {
 
 To call the method, we add a pair of parentheses to execute it:
 
-```
+```javascript
 classroom.sayHello();
 => Hello
 ```
@@ -213,11 +213,9 @@ classroom.sayHello();
 
 We can attach regular functions to objects as methods, even after they are created.
 
-```
+```javascript
 const sayHello = function() { console.log("Hello"); }
-
 classroom.sayHello = sayHello;  
-
 classroom.sayHello()
 => Hello
 ```
@@ -227,7 +225,7 @@ classroom.sayHello()
 In JavaScript, `this` is a keyword that refers to the current object. When used in a method on an object, it will always refer to the current object.
 
 
-```
+```javascript
 const classroom = {
   name: 'WDI 2',
   campus: 'London',
