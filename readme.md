@@ -255,19 +255,19 @@ There are three native ways to list the properties of an object:
 You can use the bracket notation with for...in to iterate over all the enumerable properties of an object.
 
 ```javascript
-const myCar = {make: 'Ford', model: 'Mustang', year: 1969};
-
-function showProps(obj, objName) {
-  const result = '';
-  for (let i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      result += objName + '.' + i + ' = ' + obj[i] + '\n';
-    }
-  }
-  return result;
+const car = { 
+  make: 'Ford', 
+  model: 'Mustang', 
+  year: 1969 
 }
 
-showProps(myCar, 'Car');
+const showProps = function(obj, objName) {
+  for (let key in obj) {
+      console.log(`${objName}.${key} = ${obj[key]}`)
+  }
+}
+
+showProps(car, 'Car')
 => Car.make = Ford
 => Car.model = Mustang
 => Car.year = 1969
