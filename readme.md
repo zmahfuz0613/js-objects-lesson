@@ -71,7 +71,7 @@ It is also possible to use a `function` statement to create an object that serve
 The first step is to write a function that will define the object. By convention, this function we start the function name with a capital letter. Once the function is defined (in the current scope), you can create a new object by using the keyword `new`.
 
 ```javascript
-function Classroom(name, numberOfStudents) {
+const Classroom = function(name, numberOfStudents) {
   this.name = name;
   this.numberOfStudents = numberOfStudents;
 }
