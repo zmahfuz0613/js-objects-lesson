@@ -241,34 +241,6 @@ classroom.classInfo()
 => This is WDI 2 and it starts on 1/1/2000
 ```
 
-## We Do: Getters and setters
-
-> A getter is a method that gets the value of a specific property. A setter is a method that sets the value of a specific property. You can define getters and setters on any predefined core object or user-defined object that supports the addition of new properties. The syntax for defining getters and setters uses the object literal syntax.
-
-```javascript
-const o = {
-	a: 7,
-	get b() {
-		return this.a + 1;
-	},
-	set c(x) {
-		this.a = x / 2
-	}
-};
-
-console.log(o.a);
-=> 7
-
-console.log(o.b);
-=> 8
-
-o.c = 50;
-console.log(o.a);
-=> 25
-```
-
-This section from [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects#Defining_getters_and_setters)
-
 #### Enumerating properties of an object
 
 There are three native ways to list the properties of an object:
