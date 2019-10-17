@@ -21,8 +21,6 @@
 Objects in JavaScript
 =====
 
-## Opening
-
 ### What is an object?
 
 * Objects are a type of data structure that is nearly universal across programming languages, although they may have different names in different languages
@@ -76,7 +74,7 @@ const Classroom = function(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-const wdi = new Classroom('WDI TTP NYC', 25);
+const sei = new Classroom('SEI OWLS NYC', 25);
 ```
 
 #### Object.create
