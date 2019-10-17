@@ -23,3 +23,13 @@ const Car = function(make, model, awd, color) {
 
 const car1 = new Car('tesla', 'model x', true, 'grey')
 car1.print()
+
+const printAll = function(car) {
+    for (let key in car) {
+        console.log(`${key} = ${car[key]}`)
+    }
+}
+
+// printAll(car)
+console.log(Object.keys(car))
+console.log(Object.getOwnPropertyNames(car))
