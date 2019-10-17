@@ -63,3 +63,30 @@ Object.defineProperty( tesla, "make", {
 })
 
 console.log(Object.keys(tesla))
+
+const Monkey = function(name, species) {
+    this.name = name,
+    this.species = species,
+    this.foodsEaten = [],
+    this.eatSomething = function(food) {
+        this.foodsEaten.push(food)
+    },
+    this.introduce = function() {
+        console.log(`Hello! My name is ${this.name}. I am a ${this.species} monkey. And I have eaten ${this.foodsEaten}.`)
+    }
+}
+
+const monkey1 = new Monkey("Bruno", "developer")
+monkey1.eatSomething('bananas')
+monkey1.eatSomething('apples')
+monkey1.introduce()
+
+const monkey2 = new Monkey("Debbie", "artist")
+monkey2.eatSomething('celery')
+monkey2.eatSomething('carrots')
+monkey2.introduce()
+
+const monkey3 = new Monkey("Charles", "construction worker")
+monkey3.eatSomething('meat')
+monkey3.eatSomething('lamb')
+monkey3.introduce()
