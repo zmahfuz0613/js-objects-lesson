@@ -74,7 +74,7 @@ const Classroom = function(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-const sei = new Classroom('SEI OWLS NYC', 25);
+const sei = new Classroom('SEI Apollo NYC', 25);
 ```
 
 #### Object.create
