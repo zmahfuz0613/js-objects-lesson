@@ -109,7 +109,7 @@ Objects in JavaScript **always** have properties associated with them.
 You can think of a property on a JavaScript object as a type of variable that contains a value. The properties of an object can be accessed using 'dot notation':
 
 ```javascript
-const Person = {
+const person = {
   name: 'Gerry'
 }
 
