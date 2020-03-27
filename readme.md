@@ -195,7 +195,6 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 const classroom = {
   name: "Apollo",
   campus: "NYC",
-  start: "1/1/2000",
   sayHello: function() {
     console.log("Hello");
   }
@@ -229,14 +228,19 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 const classroom = {
   name: 'Apollo',
   campus: 'NYC',
-  start: '1/1/2000',
-  classInfo: function(){
-    console.log('This is ' + this.name + ' and the class starts on ' + this.start);
+  classInfo(){
+    console.log(`This is ${this.name} and on ${this.campus} campus`);
+  },
+  missOutdoors() {
+    console.log(`Missing ${this.campus} outdoors.`)
   }
 };
 
 classroom.classInfo()
-=> This is Apollo and it starts on 1/1/2000
+classroom.missOutdoors()
+// => This is Apollo and on NYC campus
+// => Missing NYC outdoors.
+
 ```
 
 #### Enumerating properties of an object
