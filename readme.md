@@ -9,7 +9,7 @@
 - Explain the difference between object properties and methods
 - Create empty objects and objects with multiple properties and methods using object literal syntax
 - Compare adding and retrieving properties to an existing object using the dot and bracket notations
-- Access properties of an object using keys and helper methods (.hasOwnProperty)
+- Access properties of an object using keys and helper methods.
 - Iterate over the keys of an object to return and manipulate values
 
 ### Preparation
