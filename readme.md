@@ -113,22 +113,22 @@ const Person = {
   name: 'Gerry'
 }
 
-Person.name
+person.name
 => "Gerry"
 ```
 
 You can define or re-assign a property by assigning it a value using `=` as you would a normal variable.
 
 ```javascript
-const Person = {
+const person = {
   name: 'Gerry'
 }
 
-Person.name
+person.name
 => "Gerry"
 
-Person.name = 'Alex'
-Person.name
+person.name = 'Alex'
+person.name
 => "Alex"
 ```
 
@@ -140,14 +140,14 @@ We are going to create an object `classroom` that contains properties `name` and
 const classroom = new Object();
 => undefined
 
-classroom.name = 'WDI 2';
-=> "WDI 2"
+classroom.name = 'Apollo';
+=> "Apollo"
 
-classroom.campus = 'London';
-=> "London"
+classroom.campus = 'NYC';
+=> "NYC"
 
 classroom
-=> Object {name: 'WDI 2', campus: 'London'}
+=> Object {name: 'Apollo', campus: 'NYC'}
 ```
 
 #### Bracket notation
@@ -155,20 +155,20 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom['name']   = 'WDI 2';
-classroom['campus'] = 'London';
+classroom['name']   = 'Apollo';
+classroom['campus'] = 'NYC';
 ```
 
 This syntax can also be used to read properties of an object:
 
 ```javascript
 console.log(classroom['name']);
-=> "WDI 2";
+=> "Apollo";
 
 const property = 'campus';
 
 console.log(classroom[property]);
-=> "London";
+=> "NYC";
 ```
 
 For more details see [MDN's Documentation on Property Accessors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors).
@@ -181,10 +181,10 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```javascript
-const classroom = {name: 'WDI 2', campus: 'London', start: '1/1/2000'};
+const classroom = {name: 'Apollo', campus: 'NYC', start: '1/1/2000'};
 delete classroom.start;
 classroom
-=> {name: "WDI 2", campus: "London"}
+=> {name: "Apollo", campus: "NYC"}
 ```
 
 ## Object methods
@@ -193,8 +193,8 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 
 ```javascript
 const classroom = {
-  name: "WDI 2",
-  campus: "London",
+  name: "Apollo",
+  campus: "NYC",
   start: "1/1/2000",
   sayHello: function() {
     console.log("Hello");
@@ -227,8 +227,8 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 ```javascript
 const classroom = {
-  name: 'WDI 2',
-  campus: 'London',
+  name: 'Apollo',
+  campus: 'NYC',
   start: '1/1/2000',
   classInfo: function(){
     console.log('This is ' + this.name + ' and the class starts on ' + this.start);
@@ -236,7 +236,7 @@ const classroom = {
 };
 
 classroom.classInfo()
-=> This is WDI 2 and it starts on 1/1/2000
+=> This is Apollo and it starts on 1/1/2000
 ```
 
 #### Enumerating properties of an object
