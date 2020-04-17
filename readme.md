@@ -9,7 +9,7 @@
 - Explain the difference between object properties and methods
 - Create empty objects and objects with multiple properties and methods using object literal syntax
 - Compare adding and retrieving properties to an existing object using the dot and bracket notations
-- Access properties of an object using keys and helper methods (.hasOwnProperty)
+- Access properties of an object using keys and helper methods.
 - Iterate over the keys of an object to return and manipulate values
 
 ### Preparation
@@ -29,6 +29,43 @@ Objects in JavaScript
 * In JavaScript, an object is a type of key-value store, or a way to group many pairs of keys and values together, so sometimes it's used like a hash (in Ruby) or a dictionary (in other languages)
 
 Example: A car has properties, a type of engine, a color, a certain number of seats etc. Following the same logic, a JavaScript object may have **properties** and **values** for these properties.
+### Collection of key-value pairs
+
+The following is an example of an object's key-value pair syntax:
+
+```javascript
+const car = {
+  make: 'Honda',
+  model: 'Civic',
+  year: 1989,
+  engine: '1.5 liter',
+  seats: 5,
+  color: 'grey'
+}
+```
+> "make" is the key, while "Honda" is the value
+
+> Objects must have both a key and a value - neither can be empty.
+
+Unlike arrays, objects use *named keys* rather than ordered indexes. Each piece of data is bound to its key, rather than assigned an index. The data is not sequential.
+
+We could store this same information in an array like this:
+
+```
+const car = ['Honda', 'Civic', 1989]
+```
+
+But with the array above, we don't know what the values mean. Does 'Civic' refer to the name of the owner, or the model of the vehicle?
+
+#### Independent Practice: Model SEI Student
+
+Your goal is to code an object:
+
+- In pairs, spend 2 minutes thinking about what attributes an SEI student should have (think of at least 5!).
+- Take 3 minutes to construct your object with the appropriate key-value pairs by drawing it on the table.
+- **Bonus** - One key value pair contains an array
+- **Double Bonus** - one key value pair contains another object
+
 
 Aside from the values `null` and `undefined`, **everything in JavaScript is an object**.
 
@@ -74,7 +111,7 @@ const Classroom = function(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-const sei = new Classroom('SEI OWLS NYC', 25);
+const sei = new Classroom('SEI NYC', 25);
 ```
 
 #### Object.create
@@ -109,26 +146,26 @@ Objects in JavaScript **always** have properties associated with them.
 You can think of a property on a JavaScript object as a type of variable that contains a value. The properties of an object can be accessed using 'dot notation':
 
 ```javascript
-const Person = {
+const person = {
   name: 'Gerry'
 }
 
-Person.name
+person.name
 => "Gerry"
 ```
 
 You can define or re-assign a property by assigning it a value using `=` as you would a normal variable.
 
 ```javascript
-const Person = {
+const person = {
   name: 'Gerry'
 }
 
-Person.name
+person.name
 => "Gerry"
 
-Person.name = 'Alex'
-Person.name
+person.name = 'Alex'
+person.name
 => "Alex"
 ```
 
@@ -140,14 +177,14 @@ We are going to create an object `classroom` that contains properties `name` and
 const classroom = new Object();
 => undefined
 
-classroom.name = 'WDI 2';
-=> "WDI 2"
+classroom.name = 'SEI';
+=> "SEI"
 
-classroom.campus = 'London';
-=> "London"
+classroom.campus = 'NYC';
+=> "NYC"
 
 classroom
-=> Object {name: 'WDI 2', campus: 'London'}
+=> Object {name: 'SEI', campus: 'NYC'}
 ```
 
 #### Bracket notation
@@ -155,20 +192,20 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom['name']   = 'WDI 2';
-classroom['campus'] = 'London';
+classroom['name']   = 'SEI';
+classroom['campus'] = 'NYC';
 ```
 
 This syntax can also be used to read properties of an object:
 
 ```javascript
 console.log(classroom['name']);
-=> "WDI 2";
+=> "SEI";
 
 const property = 'campus';
 
 console.log(classroom[property]);
-=> "London";
+=> "NYC";
 ```
 
 For more details see [MDN's Documentation on Property Accessors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors).
@@ -181,10 +218,10 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```javascript
-const classroom = {name: 'WDI 2', campus: 'London', start: '1/1/2000'};
+const classroom = {name: 'SEI', campus: 'NYC', start: '1/1/2000'};
 delete classroom.start;
 classroom
-=> {name: "WDI 2", campus: "London"}
+=> {name: "SEI", campus: "NYC"}
 ```
 
 ## Object methods
@@ -193,9 +230,8 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 
 ```javascript
 const classroom = {
-  name: "WDI 2",
-  campus: "London",
-  start: "1/1/2000",
+  name: "SEI",
+  campus: "NYC",
   sayHello: function() {
     console.log("Hello");
   }
@@ -227,16 +263,21 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 ```javascript
 const classroom = {
-  name: 'WDI 2',
-  campus: 'London',
-  start: '1/1/2000',
-  classInfo: function(){
-    console.log('This is ' + this.name + ' and the class starts on ' + this.start);
+  name: 'SEI',
+  campus: 'NYC',
+  classInfo(){
+    console.log(`This is ${this.name} and on ${this.campus} campus`);
+  },
+  missOutdoors() {
+    console.log(`Missing ${this.campus} outdoors.`)
   }
 };
 
 classroom.classInfo()
-=> This is WDI 2 and it starts on 1/1/2000
+classroom.missOutdoors()
+// => This is SEI and on NYC campus
+// => Missing NYC outdoors.
+
 ```
 
 #### Enumerating properties of an object
