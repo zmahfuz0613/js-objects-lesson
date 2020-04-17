@@ -111,7 +111,7 @@ const Classroom = function(name, numberOfStudents) {
   this.numberOfStudents = numberOfStudents;
 }
 
-const sei = new Classroom('SEI Apollo NYC', 25);
+const sei = new Classroom('SEI NYC', 25);
 ```
 
 #### Object.create
@@ -177,14 +177,14 @@ We are going to create an object `classroom` that contains properties `name` and
 const classroom = new Object();
 => undefined
 
-classroom.name = 'Apollo';
-=> "Apollo"
+classroom.name = 'SEI';
+=> "SEI"
 
 classroom.campus = 'NYC';
 => "NYC"
 
 classroom
-=> Object {name: 'Apollo', campus: 'NYC'}
+=> Object {name: 'SEI', campus: 'NYC'}
 ```
 
 #### Bracket notation
@@ -192,7 +192,7 @@ classroom
 There is another way to set properties on a JavaScript object.
 
 ```javascript
-classroom['name']   = 'Apollo';
+classroom['name']   = 'SEI';
 classroom['campus'] = 'NYC';
 ```
 
@@ -200,7 +200,7 @@ This syntax can also be used to read properties of an object:
 
 ```javascript
 console.log(classroom['name']);
-=> "Apollo";
+=> "SEI";
 
 const property = 'campus';
 
@@ -218,10 +218,10 @@ If you want to delete a property of an object (and by extension, the value attac
 The following code shows how to remove a property:
 
 ```javascript
-const classroom = {name: 'Apollo', campus: 'NYC', start: '1/1/2000'};
+const classroom = {name: 'SEI', campus: 'NYC', start: '1/1/2000'};
 delete classroom.start;
 classroom
-=> {name: "Apollo", campus: "NYC"}
+=> {name: "SEI", campus: "NYC"}
 ```
 
 ## Object methods
@@ -230,7 +230,7 @@ As we've said before, the value of a property can be anything in JavaScript, mea
 
 ```javascript
 const classroom = {
-  name: "Apollo",
+  name: "SEI",
   campus: "NYC",
   sayHello: function() {
     console.log("Hello");
@@ -263,7 +263,7 @@ In JavaScript, `this` is a keyword that refers to the current object. When used 
 
 ```javascript
 const classroom = {
-  name: 'Apollo',
+  name: 'SEI',
   campus: 'NYC',
   classInfo(){
     console.log(`This is ${this.name} and on ${this.campus} campus`);
@@ -275,7 +275,7 @@ const classroom = {
 
 classroom.classInfo()
 classroom.missOutdoors()
-// => This is Apollo and on NYC campus
+// => This is SEI and on NYC campus
 // => Missing NYC outdoors.
 
 ```
